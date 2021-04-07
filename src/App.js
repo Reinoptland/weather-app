@@ -5,6 +5,7 @@ import MetricSlider from "./components/metricSlider/MetricSlider";
 import "./App.css";
 import axios from "axios";
 import ForecastTab from "./pages/forecastTab/ForecastTab";
+import loader from "./assets/loader.gif";
 
 // console.log("TRUST THE PROCESS:", process.env);
 
@@ -14,9 +15,11 @@ function App() {
   const [weatherData, setWeatherData] = useState(null); // initial state: null
   const [location, setLocation] = useState(null);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function getData() {
+      setLoading(true);
       setError(null);
       try {
         const response = await axios.get(
@@ -24,9 +27,11 @@ function App() {
         );
 
         setWeatherData(response.data);
+        setLoading(false);
       } catch (error) {
         console.log("ERROR IN FETCH", error.response);
         setError(error.response.data.message);
+        setLoading(false);
       }
     }
 
@@ -58,6 +63,7 @@ function App() {
   // 1. null (begin state)
   // 2. het weer
 
+  console.log("LOADING:", loading);
   return (
     <>
       <div className="weather-container">
@@ -66,6 +72,7 @@ function App() {
           {/* passing props down (name: setLocationHandler, value: setLocation) */}
           <SearchBar setLocationHandler={setLocation} />
           {error && <span className="wrong-location-error">{error}</span>}
+          {loading && <img src={loader} />}
 
           <span className="location-details">
             {weatherData && (
