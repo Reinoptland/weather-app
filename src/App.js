@@ -23,7 +23,8 @@ function App() {
     setWeatherData(response.data);
   }
 
-  console.log("WEATHER:", weatherData);
+  console.log("LOCATION IN APP:", location);
+  // console.log("WEATHER:", weatherData);
   // 1. null (begin state)
   // 2. het weer
 

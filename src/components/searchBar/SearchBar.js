@@ -6,7 +6,8 @@ function SearchBar(props) {
 
   console.log("PROPS:", props);
   function search() {
-    console.log(query);
+    console.log("QUERY IN SEARCHBAR:", query);
+    props.setLocationHandler(query);
   }
   return (
     <span className="searchbar">
