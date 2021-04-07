@@ -6,7 +6,7 @@ import "./App.css";
 import axios from "axios";
 import ForecastTab from "./pages/forecastTab/ForecastTab";
 
-const apiKey = "0ac4c9dcc5a66ea3d2a9fe36e3bb7761";
+export const apiKey = "0ac4c9dcc5a66ea3d2a9fe36e3bb7761";
 
 function App() {
   const [weatherData, setWeatherData] = useState(null); // initial state: null
