@@ -9,6 +9,7 @@ const apiKey = "0ac4c9dcc5a66ea3d2a9fe36e3bb7761";
 
 function App() {
   const [weatherData, setWeatherData] = useState(null); // initial state: null
+  const [location, setLocation] = useState("");
 
   async function handleClick() {
     console.log("FETCH WEATHER NAO!");
@@ -31,7 +32,8 @@ function App() {
       <div className="weather-container">
         {/*HEADER -------------------- */}
         <div className="weather-header">
-          <SearchBar />
+          {/* passing props down (name: setLocationHandler, value: setLocation) */}
+          <SearchBar setLocationHandler={setLocation} />
 
           <span className="location-details">
             {weatherData && (
