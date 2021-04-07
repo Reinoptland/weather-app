@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import "./SearchBar.css";
 
 function SearchBar() {
-  const [query, setQuery] = useState("cheese");
+  const [query, setQuery] = useState("");
+
+  function search() {
+    console.log(query);
+  }
   return (
     <span className="searchbar">
       <input
@@ -13,7 +17,9 @@ function SearchBar() {
         placeholder="Zoek een stad in Nederland"
       />
 
-      <button type="button">Zoek</button>
+      <button type="button" onClick={search}>
+        Zoek
+      </button>
     </span>
   );
 }
