@@ -2,8 +2,8 @@
 
 ## Fetching data onclick
 
-1. Button maken
-2. Event listener & handler toevoegen
+1. X Button maken
+2. X Event listener & handler toevoegen
 3. axios installeren
 4. axios importeren
 5. async functie
