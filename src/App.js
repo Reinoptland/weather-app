@@ -72,7 +72,7 @@ function App() {
           {/* passing props down (name: setLocationHandler, value: setLocation) */}
           <SearchBar setLocationHandler={setLocation} />
           {error && <span className="wrong-location-error">{error}</span>}
-          {loading && <img src={loader} />}
+          {loading && <img src={loader} alt="loading" />}
 
           <span className="location-details">
             {weatherData && (
