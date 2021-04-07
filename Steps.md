@@ -9,8 +9,8 @@
 5. x async functie
 6. x axios.get
 7. x response checken
-8. state aanmaken
-9. response opslaan in de state
+8. x state aanmaken
+9. x response opslaan in de state
 10. response laten zien (JSX)
 
 ## Fetching data (in React, on mount)

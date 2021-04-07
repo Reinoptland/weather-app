@@ -8,7 +8,7 @@ import axios from "axios";
 const apiKey = "0ac4c9dcc5a66ea3d2a9fe36e3bb7761";
 
 function App() {
-  const [weather, setWeather] = useState(null); // initial state: null
+  const [weatherData, setWeatherData] = useState(null); // initial state: null
 
   async function handleClick() {
     console.log("FETCH WEATHER NAO!");
@@ -18,8 +18,13 @@ function App() {
 
     // 1. local scope -> global
     // 2. we niet allen opslaan, maar ook weergeven -> rerender!
-    console.log("RES:", response.data.weather);
+    // console.log("RES:", response.data.weather);
+    setWeatherData(response.data);
   }
+
+  console.log("WEATHER:", weatherData);
+  // 1. null (begin state)
+  // 2. het weer
 
   return (
     <>
@@ -29,9 +34,9 @@ function App() {
           <SearchBar />
 
           <span className="location-details">
-            <h2>Bewolkt</h2>
-            <h3>{response.data.weather}</h3>
-            <h1>14 &deg;</h1>
+            <h2>{weatherData.weather[0].description}</h2>
+            <h3>{weatherData.name}</h3>
+            <h1>{weatherData.main.temp}</h1>
 
             <button type="button" onClick={handleClick}>
               Haal data op!
