@@ -37,7 +37,7 @@ function ForecastTab(props) {
     <div className="tab-wrapper">
       {forecasts &&
         forecasts.slice(0, 5).map((forecast) => {
-          console.log("FORECASTS??", forecast);
+          // console.log("FORECASTS??", forecast);
           return (
             <article key={forecast.dt} className="forecast-day">
               <p className="day-description">{createDateString(forecast.dt)}</p>
