@@ -4,11 +4,11 @@
 
 1. X Button maken
 2. X Event listener & handler toevoegen
-3. axios installeren
-4. axios importeren
-5. async functie
-6. axios.get
-7. response checken
+3. X axios installeren
+4. x axios importeren
+5. x async functie
+6. x axios.get
+7. x response checken
 8. state aanmaken
 9. response opslaan in de state
 10. response laten zien (JSX)

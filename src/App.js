@@ -3,12 +3,18 @@ import SearchBar from "./components/searchBar/SearchBar";
 import TabBarMenu from "./components/tabBarMenu/TabBarMenu";
 import MetricSlider from "./components/metricSlider/MetricSlider";
 import "./App.css";
+import axios from "axios";
 
 const apiKey = "0ac4c9dcc5a66ea3d2a9fe36e3bb7761";
 
 function App() {
-  function handleClick() {
+  async function handleClick() {
     console.log("FETCH WEATHER NAO!");
+    const response = await axios.get(
+      `https://api.openweathermap.org/data/2.5/weather?q=utrecht,nl&appid=${apiKey}&lang=nl`
+    );
+
+    console.log("RES:", response);
   }
 
   return (
