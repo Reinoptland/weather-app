@@ -4,6 +4,7 @@ import TabBarMenu from "./components/tabBarMenu/TabBarMenu";
 import MetricSlider from "./components/metricSlider/MetricSlider";
 import "./App.css";
 import axios from "axios";
+import ForecastTab from "./pages/forecastTab/ForecastTab";
 
 const apiKey = "0ac4c9dcc5a66ea3d2a9fe36e3bb7761";
 
@@ -75,7 +76,7 @@ function App() {
           <TabBarMenu />
 
           <div className="tab-wrapper">
-            Alle inhoud van de tabbladen komt hier!
+            <ForecastTab coordinates={weatherData && weatherData.coord} />
           </div>
         </div>
 
