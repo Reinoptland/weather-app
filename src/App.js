@@ -13,14 +13,21 @@ export const apiKey = process.env.REACT_APP_API_KEY;
 function App() {
   const [weatherData, setWeatherData] = useState(null); // initial state: null
   const [location, setLocation] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function getData() {
-      const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${location},nl&appid=${apiKey}&lang=nl`
-      );
+      setError(null);
+      try {
+        const response = await axios.get(
+          `https://api.openweathermap.org/data/2.5/weather?q=${location},nl&appid=${apiKey}&lang=nl`
+        );
 
-      setWeatherData(response.data);
+        setWeatherData(response.data);
+      } catch (error) {
+        console.log("ERROR IN FETCH", error.response);
+        setError(error.response.data.message);
+      }
     }
 
     if (location) {
@@ -58,6 +65,7 @@ function App() {
         <div className="weather-header">
           {/* passing props down (name: setLocationHandler, value: setLocation) */}
           <SearchBar setLocationHandler={setLocation} />
+          {error && <span className="wrong-location-error">{error}</span>}
 
           <span className="location-details">
             {weatherData && (
