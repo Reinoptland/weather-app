@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SearchBar from "./components/searchBar/SearchBar";
 import TabBarMenu from "./components/tabBarMenu/TabBarMenu";
 import MetricSlider from "./components/metricSlider/MetricSlider";
@@ -10,6 +10,24 @@ const apiKey = "0ac4c9dcc5a66ea3d2a9fe36e3bb7761";
 function App() {
   const [weatherData, setWeatherData] = useState(null); // initial state: null
   const [location, setLocation] = useState("utrecht");
+
+  useEffect(() => {
+    async function getData() {
+      const response = await axios.get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${location},nl&appid=${apiKey}&lang=nl`
+      );
+
+      setWeatherData(response.data);
+    }
+
+    getData();
+    // wat wil je doen
+  }, [location]);
+
+  // Dependency array
+  // Weglaten -> ELKE KEER uitvoeren
+  // [] -> voer 1 keer uit (on mount)
+  // [location] -> voer 1 keer uit on mount EN wanneer location verandert
 
   async function handleClick() {
     console.log("FETCH WEATHER NAO!");
@@ -23,7 +41,7 @@ function App() {
     setWeatherData(response.data);
   }
 
-  console.log("LOCATION IN APP:", location);
+  // console.log("LOCATION IN APP:", location);
   // console.log("WEATHER:", weatherData);
   // 1. null (begin state)
   // 2. het weer

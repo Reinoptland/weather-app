@@ -4,9 +4,9 @@ import "./SearchBar.css";
 function SearchBar(props) {
   const [query, setQuery] = useState("");
 
-  console.log("PROPS:", props);
+  // console.log("PROPS:", props);
   function search() {
-    console.log("QUERY IN SEARCHBAR:", query);
+    // console.log("QUERY IN SEARCHBAR:", query);
     props.setLocationHandler(query);
   }
   return (
