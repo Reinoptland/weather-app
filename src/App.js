@@ -9,7 +9,7 @@ const apiKey = "0ac4c9dcc5a66ea3d2a9fe36e3bb7761";
 
 function App() {
   const [weatherData, setWeatherData] = useState(null); // initial state: null
-  const [location, setLocation] = useState("utrecht");
+  const [location, setLocation] = useState(null);
 
   useEffect(() => {
     async function getData() {
@@ -20,7 +20,9 @@ function App() {
       setWeatherData(response.data);
     }
 
-    getData();
+    if (location) {
+      getData();
+    }
     // wat wil je doen
   }, [location]);
 
